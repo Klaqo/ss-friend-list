@@ -1,0 +1,58 @@
+.gamecenter(ng-controller='listCtrl as list')
+  .row.addtolist
+      .col-md-offset-2.col-md-8
+        .form-show
+          form.form-inline
+            .form-group
+              input.form-control(type='text', placeholder="Game Center Name", ng-model='listCtrl.friendlist.username', ng-maxlength='30', ng-init="listCtrl.friendlist.game_id=this.gameId")
+              input.form-control(type='text', placeholder='Short Message', ng-model='listCtrl.friendlist.message', ng-maxlength='140')
+              input.form-control(type='submit', value='Join List', ng-click="addUser()")
+              //-TODO: add user to list - hide join form - add captcha.
+              //-TODO: Get it ready to upload to github
+              //-TODO: single page app reddit multi TIME!
+    .row(ng-show='listCtrl.friendlist.username.length || listCtrl.friendlist.message.length')
+      .col-md-offset-2.col-md-8
+        .table-responsive
+          table.table
+            col.col1
+            col.col2
+            col.col3
+            thead
+              tr
+                th Preview:
+                th
+                th
+              tr
+                th
+                  | Username (Characters Left: {{30 - listCtrl.friendlist.username.length}})
+                th
+                  | Requests (Characters Left: {{140 - listCtrl.friendlist.message.length}})
+                th.center Submit
+            tbody
+              tr
+                td {{listCtrl.friendlist.username}}
+                td {{listCtrl.friendlist.message}}
+                td.center
+                  button.btn.btn-default.btn-xs(type='button', ng-click="addUser()")
+                    span.glyphicon.glyphicon-plus
+    .row
+      .col-md-offset-2.col-md-8
+        .table-responsive
+          table.table
+            col.col1
+            col.col2
+            col.col3
+            thead
+              tr
+                th Username
+                th Requests
+                th.center Added
+            tbody
+              tr(ng-repeat='user in friendlist.friendlist')
+                td {{user.username}}
+                td {{user.message}}
+                td.center
+                  button.btn.btn-default.btn-xs(type='button', ng-click='friendlist.friendlist.splice($index, 1)')
+                    span.glyphicon.glyphicon-ok
+              tr(ng-show='!friendlist.friendlist.length')
+                td There's no one left to add!

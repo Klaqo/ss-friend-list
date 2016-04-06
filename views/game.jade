@@ -1,0 +1,26 @@
+doctype html
+html(ng-app='friendListApp', ng-controller="mainCtrl as main")
+  include ./includes/head.jade
+  body
+    nav.gamepagenav.navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          button(type="button", data-toggle="collapse", data-target="#navbar-collapse", aria-expanded="false").navbar-toggle.collapsed
+            span.sr-only Toggle Navigation
+            span.icon-bar.top-bar
+            span.icon-bar.middle-bar
+            span.icon-bar.bottom-bar
+          a(href='localhost:3000', target="_self").navbar-brand friendlist
+            span.animate-show(ng-show='fromTop >= 80') : {{games.game[0].name}}
+        .collapse.navbar-collapse#navbar-collapse    
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href="") Quick Guide    
+    .container
+      .row(ng-controller='gamesDataCtrl')
+        header.gamepageheader
+          .col-md-offset-2.col-md-8
+            h1.title(ng-bind='games.game[0].name')
+            p.developer(ng-bind='games.game[0].developer')
+        include ./includes/game-center.jade       
+    include ./includes/foot.jade

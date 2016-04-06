@@ -1,0 +1,20 @@
+doctype html
+html(ng-app='friendListApp')
+  include ./includes/head.jade
+  body(ng-controller='mainCtrl')
+    .container(ng-controller='gamesCtrl')
+      .row
+        .col-md-offset-2.col-md-8
+          header.homepageheader
+            h1.title friendlist
+            p.description find active players to play your favourite mobile games with
+            input#search.form-control(type='search', ng-model='searchText')
+            //- TODO: Explain what the site does, SEO. [Active users][Specific Game] etc
+      .row
+        .col-md-offset-2.col-md-8
+          ul.gameslist
+            li.gameslistitem(ng-repeat="game in games | filter:searchText | orderBy:'name'").center
+              span.gamename
+                a(href='/games/{{game.id}}', ng-bind='game.name' target="_self")
+    include ./includes/foot.jade
+    script(type='text/javascript', src='../static/scripts/focus.js')

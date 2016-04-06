@@ -1,0 +1,197 @@
+body{
+  background: black;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 50px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover, a:visited, a:active, a:link{
+  color: white;
+  text-decoration: none;
+}
+
+.center{
+  text-align: center;
+}
+
+/* Header */
+.homepageheader {
+  margin: 5em 0;
+}
+
+.homepageheader .title {
+  text-align: center;
+  font-size: 4em;
+}
+
+.homepageheader .description{
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 4em;
+}
+
+
+input[type=search], input[type=text], input[type=submit]{
+  border: 1px solid white;
+  background: transparent;
+  color: white;
+}
+
+input[type=search]:focus, input[type=text]:focus, input[type=submit]:focus{
+  border-color: white;
+  box-shadow: 0 0 5px rgba(255, 255, 238, 1);
+}
+
+/* Game List */
+
+.gameslist {
+  list-style-type: none;
+  padding:0;
+}
+
+.gamename{
+  font-size: 2em;
+}
+
+/* individual game list*/
+
+  /* game page nav */
+.navbar-default{
+  background-color: white;
+}
+
+.gamepagenav .navbar-header a, .gamepagenav .navbar-right li a {
+  color: black;
+}
+.navbar-default .navbar-toggle .icon-bar{
+    background-color: black;
+}
+.navbar-toggle {
+  border: none;
+  background: transparent !important;
+}
+.navbar-toggle:hover {
+  background: transparent !important;
+}
+.navbar-toggle .icon-bar {
+  width: 22px;
+  transition: all 0.2s;
+}
+.navbar-toggle .top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+.navbar-toggle .middle-bar {
+  opacity: 0;
+}
+.navbar-toggle .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+.navbar-toggle.collapsed .top-bar {
+  transform: rotate(0);
+}
+.navbar-toggle.collapsed .middle-bar {
+  opacity: 1;
+}
+.navbar-toggle.collapsed .bottom-bar {
+  transform: rotate(0);
+}
+
+.animate-show {
+  opacity: 1;
+}
+.animate-show.ng-hide{
+  opacity: 0;
+}
+.animate-show.ng-hide-add, .animate-show.ng-hide-remove {
+  transition: ease 0.2s;
+  -webkit-transition: ease 0.2s;
+  -moz-transition: ease 0.2s;
+  -o-transition: ease 0.2s;
+}
+
+.gamepageheader {
+  margin: 2em 0;
+}
+
+.gamepageheader .title {
+  font-size: 4em;
+  text-align: center;
+}
+
+.gamepageheader .developer{
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.tabwrapper{
+  text-align: center;
+  margin-bottom:3em;
+  border-bottom: 1px solid white;
+}
+
+.tabwrapper a {
+  display: inline-block;
+  padding: 0 1em;
+  font-size: 1.2em;
+}
+
+.active::after{
+  content: '';
+  display: block;
+  background: white;
+  height: 3px;
+  max-width: 150px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.form-inline{
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.form-inline input{
+  margin: 0 2px;
+}
+
+.friendlistitem{
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.form-toggle{
+  font-size: 1.5em;
+}
+
+/* Table */
+.col1{
+  width: 40%;
+}
+.col2{
+  width:55%;
+}
+.col3{
+  width: 5%;
+}
+
+.btn-default{
+  background-color: transparent;
+  color: white;
+}
+
+
+/* Footer */
+
+footer {
+  text-align: center;
+
+}
