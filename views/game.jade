@@ -10,12 +10,13 @@ html(ng-app='friendListApp', ng-controller="mainCtrl as main")
             span.icon-bar.top-bar
             span.icon-bar.middle-bar
             span.icon-bar.bottom-bar
-          a(href='localhost:3000', target="_self").navbar-brand friendlist
+          a(href='/', target="_self").navbar-brand friendlist
             span.animate-show(ng-show='fromTop >= 80') : {{games.game[0].name}}
         .collapse.navbar-collapse#navbar-collapse    
           ul.nav.navbar-nav.navbar-right
             li
-              a(href="") Quick Guide    
+              a(href="") Quick Guide
+              //-TODO: write a guide.
     .container
       .row(ng-controller='gamesDataCtrl')
         header.gamepageheader

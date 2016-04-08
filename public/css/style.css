@@ -36,6 +36,12 @@ a:hover, a:visited, a:active, a:link{
   margin-bottom: 4em;
 }
 
+.formerror {
+  border: 1px solid red !important;
+}
+.formerror:focus{
+  box-shadow: 0 0 5px red !important;
+}
 
 input[type=search], input[type=text], input[type=submit]{
   border: 1px solid white;
@@ -132,28 +138,6 @@ input[type=search]:focus, input[type=text]:focus, input[type=submit]:focus{
   margin-bottom: 2em;
 }
 
-.tabwrapper{
-  text-align: center;
-  margin-bottom:3em;
-  border-bottom: 1px solid white;
-}
-
-.tabwrapper a {
-  display: inline-block;
-  padding: 0 1em;
-  font-size: 1.2em;
-}
-
-.active::after{
-  content: '';
-  display: block;
-  background: white;
-  height: 3px;
-  max-width: 150px;
-  width: 100%;
-  margin: 0 auto;
-}
-
 .form-inline{
   text-align: center;
   margin-bottom: 2em;
@@ -163,13 +147,18 @@ input[type=search]:focus, input[type=text]:focus, input[type=submit]:focus{
   margin: 0 2px;
 }
 
-.friendlistitem{
-  text-align: center;
-  font-size: 1.5em;
+.dupe {
+  position: absolute;
+  width:100%;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.form-toggle{
-  font-size: 1.5em;
+
+.recaptcha {
+  margin: 5px auto;
+  width: 300px;
 }
 
 /* Table */
