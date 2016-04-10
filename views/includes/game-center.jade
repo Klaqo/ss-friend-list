@@ -9,13 +9,13 @@
           p(ng-show="postError", ng-click="errorHandler()").center {{errMessage}}
           form(name="newuserForm", ng-submit="newuserForm.$valid && !isDuplicate && addUser()" novalidation).form-inline
             .form-group
-              input.form-control(type='text', placeholder="Game Center Name", ng-model='listCtrl.friendlist.username' ng-change="checkForDupes()", ng-maxlength='30', ng-init="listCtrl.friendlist.game_id=this.gameId", ng-class="{'formerror': isDuplicate == true}" required)
-              input.form-control(type='text', placeholder='Short Message', ng-model='listCtrl.friendlist.message', ng-maxlength='140' required)
-              div.recaptcha(vc-recaptcha, ng-show='listCtrl.friendlist.username.length || listCtrl.friendlist.message.length' theme='dark', key="'6LdN3hwTAAAAAGV-iygBG_RA1XpSQ0AWsdjE0wEO'", ng-model="listCtrl.friendlist.recaptchaResponse")
+              input.form-control(type='text', placeholder="Game Center Name", ng-model='newuser.username' ng-change="checkForDupes()", ng-maxlength='30', ng-init="newuser.game_id=this.gameId", ng-class="{'formerror': isDuplicate == true}" required)
+              input.form-control(type='text', placeholder='Short Message', ng-model='newuser.message', ng-maxlength='140' required)
+              div.recaptcha(vc-recaptcha, ng-show='newuser.username.length || newuser.message.length' theme='dark', key="'6LdN3hwTAAAAAGV-iygBG_RA1XpSQ0AWsdjE0wEO'", ng-model="newuser.recaptchaResponse")
               input.form-control(type='submit', value='Join List')
 
               //-TODO: single page app reddit multi TIME!
-    .row(ng-show='listCtrl.friendlist.username.length || listCtrl.friendlist.message.length')
+    .row(ng-show='newuser.username.length || newuser.message.length')
       .col-md-offset-2.col-md-8
         .table-responsive
           table.table
@@ -29,14 +29,14 @@
                 th
               tr
                 th
-                  | Username (Characters Left: {{30 - listCtrl.friendlist.username.length}})
+                  | Username (Characters Left: {{30 - newuser.username.length}})
                 th
-                  | Optional Message (Characters Left: {{140 - listCtrl.friendlist.message.length}})
+                  | Optional Message (Characters Left: {{140 - newuser.message.length}})
                 th.center Added
             tbody
               tr
-                td {{listCtrl.friendlist.username}}
-                td {{listCtrl.friendlist.message}}
+                td {{newuser.username}}
+                td {{newuser.message}}
                 td.center
                   button.btn.btn-default.btn-xs(ng-click="addUser()")
                     span.glyphicon.glyphicon-ok

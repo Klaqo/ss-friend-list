@@ -1,9 +1,7 @@
 'use strict';
 
 var angular = require('angular');
-require('angular-recaptcha');
-require('angular-animate');
-require('angular-route');
+
 
 
 angular.module('friendListApp')
@@ -40,7 +38,7 @@ angular.module('friendListApp')
     $scope.friendlist = friendlist;
   });
   $scope.addUser = function(){
-    var addUser = $scope.listCtrl.friendlist;
+    var addUser = $scope.newuser;
     var newUser = {
       'username': addUser.username,
       'message': addUser.message,
@@ -49,8 +47,9 @@ angular.module('friendListApp')
     dataService.addUserToList(newUser, function(response){
       $scope.postSuccess = true;
       console.log('Success');
-      $scope.friendlist.friendlist.push(newUser);
-      $scope.listCtrl.friendlist = {};
+      $scope.friendlist.friendlist.unshift(newUser);
+      //TODO: add new user ID to URL (at this URL, this user is top of list)
+      $scope.newuser = {};
       $scope.postSuccess = true;
     }, function(err){
       console.log(err);
@@ -58,9 +57,10 @@ angular.module('friendListApp')
     });
   };
 
+
   $scope.checkForDupes = function(){
     for(var i = 0; i < $scope.friendlist.friendlist.length; i++){
-      if ($scope.listCtrl.friendlist.username.toLowerCase() == $scope.friendlist.friendlist[i].username.toLowerCase()){
+      if ($scope.newuser.username.toLowerCase() == $scope.friendlist.friendlist[i].username.toLowerCase()){
         $scope.isDuplicate = true;
         break;
       } else {

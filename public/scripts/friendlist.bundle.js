@@ -6,9 +6,7 @@ webpackJsonp([0],{
 	'use strict';
 
 	var angular = __webpack_require__(1);
-	__webpack_require__(3);
-	__webpack_require__(4);
-	__webpack_require__(6);
+
 
 	  var app = angular.module('friendListApp', ['ngAnimate', 'ngRoute', 'vcRecaptcha'], function($locationProvider){
 	    $locationProvider.html5Mode(true);
@@ -26,9 +24,6 @@ webpackJsonp([0],{
 	'use strict';
 
 	var angular = __webpack_require__(1);
-	__webpack_require__(3);
-	__webpack_require__(4);
-	__webpack_require__(6);
 
 	angular.module('friendListApp')
 	.service('dataService', function($http){
@@ -65,9 +60,7 @@ webpackJsonp([0],{
 	'use strict';
 
 	var angular = __webpack_require__(1);
-	__webpack_require__(3);
-	__webpack_require__(4);
-	__webpack_require__(6);
+
 
 
 	angular.module('friendListApp')
@@ -104,7 +97,7 @@ webpackJsonp([0],{
 	    $scope.friendlist = friendlist;
 	  });
 	  $scope.addUser = function(){
-	    var addUser = $scope.listCtrl.friendlist;
+	    var addUser = $scope.newuser;
 	    var newUser = {
 	      'username': addUser.username,
 	      'message': addUser.message,
@@ -113,8 +106,9 @@ webpackJsonp([0],{
 	    dataService.addUserToList(newUser, function(response){
 	      $scope.postSuccess = true;
 	      console.log('Success');
-	      $scope.friendlist.friendlist.push(newUser);
-	      $scope.listCtrl.friendlist = {};
+	      $scope.friendlist.friendlist.unshift(newUser);
+	      //TODO: add new user ID to URL (at this URL, this user is top of list)
+	      $scope.newuser = {};
 	      $scope.postSuccess = true;
 	    }, function(err){
 	      console.log(err);
@@ -122,9 +116,10 @@ webpackJsonp([0],{
 	    });
 	  };
 
+
 	  $scope.checkForDupes = function(){
 	    for(var i = 0; i < $scope.friendlist.friendlist.length; i++){
-	      if ($scope.listCtrl.friendlist.username.toLowerCase() == $scope.friendlist.friendlist[i].username.toLowerCase()){
+	      if ($scope.newuser.username.toLowerCase() == $scope.friendlist.friendlist[i].username.toLowerCase()){
 	        $scope.isDuplicate = true;
 	        break;
 	      } else {

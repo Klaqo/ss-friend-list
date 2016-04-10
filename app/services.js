@@ -1,9 +1,6 @@
 'use strict';
 
 var angular = require('angular');
-require('angular-recaptcha');
-require('angular-animate');
-require('angular-route');
 
 angular.module('friendListApp')
 .service('dataService', function($http){
